@@ -15,7 +15,7 @@ export const ProjectListScreen = () => {
     personId: ''
   })
   const [list, setList] = useState([])
-  const debouncedParam = useDebounce(param, 2000)
+  const debouncedParam = useDebounce(param, 200)
 
   useEffect(() => {
     fetch(`${apiUrl}/projects?${qs.stringify(cleanObject(debouncedParam))}`).then(async response => {
@@ -31,7 +31,7 @@ export const ProjectListScreen = () => {
         setUsers(await response.json())
       }
     })
-  }, [])
+  })
 
   return <div>
     <SearchPanel param={param} setParam={setParam} users={users} />
