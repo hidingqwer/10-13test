@@ -21,7 +21,7 @@ export const useMount = (callback: () => void) => {
   }, [])
 }
 
-export const useDebounce = (value: { name: string; personId: string }, delay?: number) => {//去抖 
+export const useDebounce = <V>(value: V, delay?: number) => {//去抖 
   const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {
